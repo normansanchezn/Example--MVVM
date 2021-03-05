@@ -1,11 +1,14 @@
-package com.example.mvvmexample
+package com.example.mvvmexample.ui.login
 
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mvvmexample.R
 import com.example.mvvmexample.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val databinding: ActivityMainBinding = DataBindingUtil.setContentView(this, getLayout())
@@ -15,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private fun configView(databinding: ActivityMainBinding) {
         with(databinding) {
             btnLogin.setOnClickListener {
-                
+
             }
         }
     }
