@@ -21,8 +21,8 @@ class LoginViewModel: ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             Thread.sleep(2000)
             _message.postValue(if (user.isNotEmpty() && pass.isNotEmpty()) "Success" else "Failure")
+            _progressVisibility.postValue(false)
         }
-        _progressVisibility.value = false
     }
 
 }

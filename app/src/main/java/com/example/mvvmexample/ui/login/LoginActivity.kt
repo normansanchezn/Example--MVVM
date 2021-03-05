@@ -1,12 +1,11 @@
 package com.example.mvvmexample.ui.login
 
 import android.content.Intent
-import androidx.databinding.DataBindingUtil
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.mvvmexample.R
 import com.example.mvvmexample.databinding.ActivityMainBinding
 import com.example.mvvmexample.ui.register.RegisterActivity
@@ -22,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val databinding: ActivityMainBinding = DataBindingUtil.setContentView(this, getLayout())
         configView(databinding)
 
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        viewModel = ViewModelProvider(this).get()
 
         // Con esto ya se actualizan los datos con databinding
         databinding.viewModel = viewModel
