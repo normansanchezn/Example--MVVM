@@ -1,10 +1,12 @@
 package com.example.mvvmexample.ui.login
 
+import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mvvmexample.R
 import com.example.mvvmexample.databinding.ActivityMainBinding
+import com.example.mvvmexample.ui.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +21,11 @@ class LoginActivity : AppCompatActivity() {
         with(databinding) {
             btnLogin.setOnClickListener {
 
+            }
+
+            tvRegister.setOnClickListener {
+                val mIntent = Intent(applicationContext, RegisterActivity::class.java)
+                startActivity(mIntent)
             }
         }
     }
