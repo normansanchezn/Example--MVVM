@@ -24,19 +24,15 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        viewModel.progressVisibility.observe(this, Observer { visible ->
-            databinding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
-        })
-
-        viewModel.message.observe(this, Observer { message ->
-            databinding.tvResult.text = message
-        })
+        // Con esto ya se actualizan los datos con databinding
+        databinding.viewModel = viewModel
+        databinding.lifecycleOwner = this
     }
 
     private fun configView(databinding: ActivityMainBinding) {
         with(databinding) {
             btnLogin.setOnClickListener {
-                viewModel.onButtonClicked(etUserName.text.toString(), etPassword.text.toString())
+                viewModel!!.onButtonClicked(etUserName.text.toString(), etPassword.text.toString())
             }
 
             tvRegister.setOnClickListener {
