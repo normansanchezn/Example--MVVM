@@ -13,4 +13,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="singup">Sing up</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="name_hint">Name</string>
+    <string name="phone_hint">55********</string>
+    <string name="age_hint">Age</string>
+    <string name="txt_register">Register</string>
+    <string name="password_hint">**********</string>
 </resources>
