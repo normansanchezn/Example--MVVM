@@ -9,11 +9,11 @@ import androidx.lifecycle.get
 import com.example.mvvmexample.R
 import com.example.mvvmexample.data.User
 import com.example.mvvmexample.databinding.ActivityRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registerViewModel: RegisterViewModel
-    private lateinit var userData: MutableLiveData<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +28,12 @@ class RegisterActivity : AppCompatActivity() {
     private fun configView(databinding: ActivityRegisterBinding) {
         with(databinding) {
             btnRegister.setOnClickListener {
-                userData = registerViewModel.getUserData()
-
                 registerViewModel.registerUser(
-                    userData.value!!.name,
-                    userData.value!!.lastName,
-                    userData.value!!.password,
-                    userData.value!!.age,
-                    userData.value!!.phone
-                    )
+                    etName.text.toString(),
+                    etLastName.text.toString(),
+                    etPassword.text.toString(),
+                    etAge.text.toString(),
+                    etPhoneNumber.text.toString())
             }
         }
     }

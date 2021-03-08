@@ -1,13 +1,16 @@
 package com.example.mvvmexample.ui.register
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.room.RoomDatabase
 import com.example.mvvmexample.data.User
+import com.example.mvvmexample.data.local.AppDatabase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class RegisterViewModel: ViewModel() {
 
@@ -23,9 +26,18 @@ class RegisterViewModel: ViewModel() {
     fun registerUser(name: String, lastName: String, pass: String, age: String, phone: String) {
         _progressVisibility.value = true
         viewModelScope.launch(Dispatchers.IO) {
-            //Thread.sleep(2000)
-            Log.i(TAG, name + lastName + pass + age + phone)
+            saveLocalUser(name, lastName, pass, age, phone)
             _progressVisibility.postValue(false)
         }
+    }
+
+    private fun saveLocalUser(
+        name: String,
+        lastName: String,
+        pass: String,
+        age: String,
+        phone: String
+    ) {
+
     }
 }
